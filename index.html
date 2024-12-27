@@ -40,10 +40,12 @@
 
             const valorPorPessoa = saque * 0.375; // Quanto cada um fica
             const valorEstoque = saque * 0.25;   // Quanto vai para o estoque
+            const valorEnviar = valorPorPessoa + valorEstoque; // O que ele deve enviar para você
 
             document.getElementById("resultado").innerHTML = `
                 <p>Valor para cada pessoa: <strong>R$ ${valorPorPessoa.toFixed(2)}</strong></p>
                 <p>Valor para o estoque: <strong>R$ ${valorEstoque.toFixed(2)}</strong></p>
+                <p><strong>Envia R$ ${valorEnviar.toFixed(2)} para loginsk</strong></p>
             `;
         }
     </script>
