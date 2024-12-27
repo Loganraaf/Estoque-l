@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divisão de Saldo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Divisão de Saldo</h1>
+    <p>Digite o valor do saque:</p>
+    <input type="number" id="saque" placeholder="Valor do saque">
+    <button onclick="calcular()">Calcular</button>
+
+    <div class="result" id="resultado"></div>
+
+    <script>
+        function calcular() {
+            const saque = parseFloat(document.getElementById("saque").value);
+            if (isNaN(saque) || saque <= 0) {
+                document.getElementById("resultado").innerHTML = "Por favor, insira um valor válido.";
+                return;
+            }
+
+            const valorPorPessoa = saque * 0.375; // Quanto cada um fica
+            const valorEstoque = saque * 0.25;   // Quanto vai para o estoque
+
+            document.getElementById("resultado").innerHTML = `
+                <p>Valor para cada pessoa: <strong>R$ ${valorPorPessoa.toFixed(2)}</strong></p>
+                <p>Valor para o estoque: <strong>R$ ${valorEstoque.toFixed(2)}</strong></p>
+            `;
+        }
+    </script>
+</body>
+</html>
